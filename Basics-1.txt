@@ -1,0 +1,14 @@
+import pymongo
+## Creating Connection with MongoDB
+dbconn = pymongo.MongoClient("mongodb://localhost:27017/")
+
+## Creating Database
+dbname = "ineuron"
+db = dbconn[dbname]
+
+## creating Tables (Collection)
+collection1 = db["Bigdata1"]
+
+
+
+
