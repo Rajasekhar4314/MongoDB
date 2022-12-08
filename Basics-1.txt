@@ -8,7 +8,69 @@ db = dbconn[dbname]
 
 ## creating Tables (Collection)
 collection1 = db["Bigdata1"]
+collection2 = db["Bigdata2"]
 
+## Inserting 1 record
+collection1.insert_one({"name":"jaya",
+"course_name":"big-data-bootcamp",
+"designation":"data engineer",
+"salary":"50k"})
+
+my_row = {'Serial No': '9998',
+ 'GRE Score': '337',
+ 'TOEFL Score': '118',
+ 'University Rating': '4',
+ 'SOP': '4.5',
+ 'LOR': '4.5',
+ 'CGPA': '9.65',
+ 'Research': '1',
+ 'Chance of Admit': '0.92'}
+
+## Inserting 1 record
+col = collection1.insert_one(my_row)
+
+## Fetching the Result
+res = collection1.find()
+res
+for i in res:
+    print(i)
+    
+## list of document
+my_rows=[
+    {'Serial No': '9995',
+ 'GRE Score': '337',
+ 'TOEFL Score': '118',
+ 'University Rating': '4',
+ 'SOP': '4.5',
+ 'LOR': '4.5',
+ 'CGPA': '9.65',
+ 'Research': '1',
+ 'Chance of Admit': '0.92'},
+
+ {'Serial No': '1000',
+ 'GRE Score': '310',
+ 'TOEFL Score': '100',
+ 'University Rating': '2',
+ 'SOP': '4.2',
+ 'LOR': '3.5',
+ 'CGPA': '9.00',
+ 'Research': '0',
+ 'Chance of Admit': '0.70'}] 
+    
+my_rows
+
+## Inserting Many records
+collection1.insert_many(my_rows)
+res = collection1.find()
+for i in res:
+    print(i)
+    
+## Get perticular record --- Wrong
+res[2]
+
+## Iterate through record 
+result = collection1.find({})
+result[2]
 
 
 
